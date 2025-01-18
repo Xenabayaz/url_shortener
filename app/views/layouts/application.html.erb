@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Shortener</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+</head>
+<body>
+
+  <header>
+    <h1>URL Shortener</h1>
+  </header>
+
+  <% if flash[:notice].present? %>
+     <div class="alert alert-success" role="alert">
+       <%= flash[:notice] %>
+     </div>
+   <% end %>
+
+   <% if flash[:alert] %>
+     <div class="alert alert-danger" role="alert">
+       <%= flash[:alert] %>
+     </div>
+   <% end %>
+
+  <%= yield %>
+</body>
+</html>

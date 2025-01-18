@@ -1,0 +1,24 @@
+<!-- app/views/urls/new.html.erb -->
+<%= form_with model: @url, local: true do |form| %>
+  <h2>Shorten URL</h2>
+  
+  <% if @url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@url.errors.count, "error") %> prohibited this URL from being saved:</h2>
+      <ul>
+        <% @url.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :original_url %>
+    <%= form.text_field :original_url, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Shorten URL" %>
+  </div>
+<% end %>

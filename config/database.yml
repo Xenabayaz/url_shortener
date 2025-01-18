@@ -1,0 +1,21 @@
+# config/database.yml
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: 5
+  username: root
+  password: zainb1234
+  host: localhost
+  database: projects
+
+development:
+  <<: *default
+  database: url_shortener
+
+test:
+  <<: *default
+  database: db/test_mysql
+
+production:
+  <<: *default
+  database: db/production_mysql

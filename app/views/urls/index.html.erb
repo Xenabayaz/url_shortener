@@ -1,0 +1,14 @@
+<h1>Shortened URLs: </h1>
+
+<%= link_to 'Add New URL', new_url_path, class: 'btn btn-primary' %>
+
+<ul>
+  <% @urls.each do |url| %>
+    <br>
+    <li>
+      <a href="<%= url.original_url %>" target="_blank"><%= url.short_code %></a> |
+      <%= link_to 'View', url_path(url), class: 'btn btn-secondary' %> |
+      Visits: <%= url.analytics.count %>
+    </li>
+  <% end %>
+</ul>
